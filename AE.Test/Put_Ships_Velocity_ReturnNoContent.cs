@@ -37,7 +37,7 @@ namespace AE.Test
             //act
             var content = new StringContent(JsonConvert.SerializeObject(ship), Encoding.UTF8, MediaTypeNames.Application.Json);
 
-            var response = await Client.PutAsync("/api/Ships/ship1/Velocity", content);
+            var response = await Client.PutAsync("/api/Ships/ship2/Velocity", content);
 
             //assert
             Assert.Equal(HttpStatusCode.NoContent, response.StatusCode);

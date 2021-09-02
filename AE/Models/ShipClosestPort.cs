@@ -15,6 +15,6 @@ namespace AE.Models
     public class ClosestPort : Port
     {
         public double Distance { get; set; }
-        public DateTimeOffset EstimatedArrivalTime { get; set; }
+        public DateTimeOffset? EstimatedArrivalTime { get; set; }
     }
 }

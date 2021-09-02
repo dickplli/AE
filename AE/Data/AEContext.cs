@@ -38,6 +38,8 @@ namespace AE.Data
             {
                 entity.ToTable("Port");
 
+                entity.Property(e => e.Id).HasMaxLength(50);
+
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(250);

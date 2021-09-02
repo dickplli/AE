@@ -27,5 +27,15 @@ namespace AE.Test
             //assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         }
+
+        [Fact]
+        public async void Test2()
+        {
+            //act
+            var response = await Client.GetAsync("/api/Ships/ship2/CloestPort");
+
+            //assert
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        }
     }
 }

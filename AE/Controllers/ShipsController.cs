@@ -208,7 +208,7 @@ namespace AE.Controllers
                     Name = result.Name,
                     Latitude = result.Latitude,
                     Longitude = result.Longitude,
-                    Distance = GeoCalculator.GetDistance(ship.Latitude, ship.Longitude, result.Latitude, result.Longitude, 1, DistanceUnit.NauticalMiles),
+                    Distance = GeoCalculator.GetDistance(ship.Latitude, ship.Longitude, result.Latitude, result.Longitude, 2, DistanceUnit.NauticalMiles),
                 })
                 .OrderBy(x => x.Distance)
                 .FirstOrDefault();
@@ -220,7 +220,10 @@ namespace AE.Controllers
                 GenerationTime = DateTimeOffset.UtcNow
             };
 
-            shipClosestPort.CloestPort.EstimatedArrivalTime = shipClosestPort.GenerationTime.AddHours(closestPort.Distance / ship.Velocity);
+            if (ship.Velocity != 0)
+            {
+                shipClosestPort.CloestPort.EstimatedArrivalTime = shipClosestPort.GenerationTime.AddHours(closestPort.Distance / ship.Velocity);
+            }
 
             return shipClosestPort;
         }
