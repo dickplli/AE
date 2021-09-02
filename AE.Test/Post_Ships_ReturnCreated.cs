@@ -39,7 +39,7 @@ namespace AE.Test
             {
                 Id = RandomString(10),
                 Name = RandomString(20),
-                Latitude = random.NextDouble() * 90,
+                Latitude = random.NextDouble() * 180 - 90,
                 Longitude = random.NextDouble() * 360 - 180,
                 Velocity = random.NextDouble() * 25
             };
